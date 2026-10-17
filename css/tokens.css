@@ -1,0 +1,140 @@
+/* Design Tokens: "Zen Slate x Indigo" */
+:root {
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  /* Type Scale */
+  --text-xs: 12px;   /* meta, badges */
+  --text-sm: 13px;   /* secondary, table cells (warden) */
+  --text-base: 14px; /* body */
+  --text-md: 16px;   /* body large, student table cells */
+  --text-lg: 18px;   /* card titles */
+  --text-xl: 20px;   /* section headings */
+  --text-2xl: 28px;  /* key figures */
+  --text-3xl: 32px;  /* page titles */
+  --text-hero: 72px; /* room number only */
+
+  --leading-tight: 1.15;
+  --leading-body: 1.5;
+  --tracking-tight: -0.02em;
+  --tracking-hero: -0.04em;
+
+  /* Colors - Light Theme (Zen Slate) */
+  --bg: #F8FAFC;
+  --surface: #FFFFFF;
+  --surface-raised: #FFFFFF;
+  --surface-hover: #F1F5F9;
+  --field: #F1F5F9;
+  --field-focus: #FFFFFF;
+  --border: #E2E8F0;
+  --border-strong: #CBD5E1;
+
+  --ink: #0F172A;
+  --ink-secondary: #334155;
+  --muted: #64748B;
+  --muted-light: #94A3B8;
+
+  --accent: #4F46E5;        /* Indigo */
+  --accent-hover: #4338CA;
+  --accent-solid: #4F46E5;
+  --accent-soft: #EEF2FF;
+
+  --success: #10B981;
+  --success-soft: #ECFDF5;
+  --warning: #F59E0B;
+  --warning-soft: #FFFBEB;
+  --danger: #EF4444;
+  --danger-soft: #FEF2F2;
+
+  /* Density Tokens: comfortable by default */
+  --row-h: 44px;
+  --control-h: 40px;
+  --card-pad: 24px;
+  --gap: 24px;
+  --section-gap: 36px;
+  --cell-text: var(--text-md);
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 16px;
+  --radius-pill: 9999px;
+
+  /* Shadows - restrained (No heavy box-shadows per ban list) */
+  --shadow-subtle: 0 1px 2px 0 rgba(15, 23, 42, 0.04);
+  --shadow-overlay: 0 4px 20px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+  --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+
+  /* Layout dimensions */
+  --sidebar-w: 240px;
+  --topbar-h: 56px;
+  --bottombar-h: 56px;
+  --content-max-w: 1200px;
+
+  /* Smooth 150-200ms transitions */
+  --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Density per role: comfortable for students, compact for wardens */
+[data-density="comfortable"] {
+  --row-h: 44px;
+  --control-h: 40px;
+  --card-pad: 24px;
+  --gap: 24px;
+  --section-gap: 36px;
+  --cell-text: var(--text-md);
+}
+
+[data-density="compact"] {
+  --row-h: 36px;
+  --control-h: 32px;
+  --card-pad: 16px;
+  --gap: 16px;
+  --section-gap: 24px;
+  --cell-text: var(--text-sm);
+}
+
+/* Dark Theme (Deep Slate) */
+[data-theme="dark"] {
+  --bg: #020617;          /* slate-950 */
+  --surface: #0F172A;     /* slate-900 */
+  --surface-raised: #1E293B; /* menus, dialogs, slate-800 */
+  --surface-hover: #1E293B;
+  --field: #1E293B;
+  --field-focus: #0F172A;
+
+  --ink: #F1F5F9;
+  --ink-secondary: #CBD5E1;
+  --muted: #94A3B8;
+  --muted-light: #64748B;
+
+  --border: #1E293B;
+  --border-strong: #334155;
+
+  --accent: #818CF8;      /* indigo-400 for text, icons, focus */
+  --accent-hover: #A5B4FC;
+  --accent-solid: #4F46E5; /* filled primary button */
+  --accent-soft: rgba(129, 140, 248, 0.14);
+
+  --success: #34D399;
+  --success-soft: rgba(52, 211, 153, 0.12);
+  --warning: #FBBF24;
+  --warning-soft: rgba(251, 191, 36, 0.12);
+  --danger: #F87171;
+  --danger-soft: rgba(248, 113, 113, 0.12);
+
+  --shadow-subtle: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-overlay: 0 8px 24px -4px rgba(0, 0, 0, 0.6);
+  --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+}
+
+/* Reduce motion when user prefers */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,142 @@
+/* Responsive Strategy for Zen Slate x Indigo */
+
+@media (max-width: 1199px) {
+  :root {
+    --sidebar-w: 68px;
+  }
+
+  .sidebar__logo-link span,
+  .sidebar__role-tag,
+  .sidebar__section-title,
+  .nav-item span,
+  .sidebar__profile-text {
+    display: none;
+  }
+
+  .sidebar__header {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .nav-item {
+    justify-content: center;
+    padding: 10px 0;
+  }
+
+  .sidebar__profile-block {
+    justify-content: center;
+  }
+
+  .content-area {
+    padding: 24px 20px;
+  }
+
+  .kanban-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --sidebar-w: 0px;
+    --topbar-h: 52px;
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
+    width: 240px;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+    box-shadow: var(--shadow-overlay);
+  }
+
+  /* Restore text inside drawer */
+  .sidebar__logo-link span,
+  .sidebar__role-tag,
+  .sidebar__section-title,
+  .nav-item span,
+  .sidebar__profile-text {
+    display: inline-block;
+  }
+
+  .sidebar__header {
+    justify-content: space-between;
+    padding: 0 16px;
+  }
+
+  .nav-item {
+    justify-content: flex-start;
+    padding: 8px 12px;
+  }
+
+  .sidebar__profile-block {
+    justify-content: flex-start;
+  }
+
+  .main-wrapper {
+    margin-left: 0;
+    padding-bottom: var(--bottombar-h);
+  }
+
+  .topbar {
+    padding: 0 16px;
+  }
+
+  .topbar__left #btn-toggle-mobile-sidebar {
+    display: inline-flex !important;
+  }
+
+  .content-area {
+    padding: 16px;
+  }
+
+  .bottom-tab-bar {
+    display: flex;
+  }
+
+  /* Asymmetric grids reorganize on mobile */
+  .room-hero-panel {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px 20px;
+  }
+
+  .room-hero__number {
+    font-size: 52px;
+  }
+
+  .room-hero-visual {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .kanban-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 12px;
+    padding-bottom: 12px;
+  }
+
+  .kanban-column {
+    min-width: 260px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+
+  .metric-row {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .metric-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .room-hero__number {
+    font-size: 44px;
+  }
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HostelHub - Campus Residence &amp; Facility Operations</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%234F46E5%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z%22/><polyline points=%229 22 9 12 15 12 15 22%22/></svg>">
+
+  <!-- Immediate Theme & Density check before first paint to prevent flash -->
+  <script>
+    try {
+      const stored = localStorage.getItem("hostelhub:v2");
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (parsed && parsed.settings) {
+          const t = parsed.settings.theme;
+          if (t === 'system') {
+            const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+          } else if (t) {
+            document.documentElement.setAttribute('data-theme', t);
+          }
+          if (parsed.settings.density) {
+            document.documentElement.setAttribute('data-density', parsed.settings.density);
+          }
+        }
+      }
+    } catch (e) {}
+  </script>
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Site-Wide Maintenance Banner (Toggled in Settings) -->
+  <div id="maintenance-banner-container" style="display: none;"></div>
+
+  <div class="app-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <!-- Main Viewport -->
+    <div class="main-wrapper">
+      
+      <!-- Topbar Header -->
+      <header class="topbar" id="topbar"></header>
+
+      <!-- Main Dynamic Content Container -->
+      <main class="content-area" id="main-content">
+        <!-- Rendered by Hash Router -->
+      </main>
+
+    </div>
+
+  </div>
+
+  <!-- Mobile Bottom Tab Navigation (< 768px) -->
+  <nav class="bottom-tab-bar" id="bottom-tab-bar"></nav>
+
+  <!-- Notification Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Application Bootstrap (ES Modules) -->
+  <script type="module" src="js/app.js"></script>
+
+</body>
+</html>
